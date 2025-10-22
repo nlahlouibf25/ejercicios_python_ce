@@ -27,38 +27,38 @@ def mostrar_tablero(tablero, ocultar_barcos=False):
         print("\n  +---+---+---+---+---+---+---+")
     print()
 
-def colocar_barco(tablero, tamaño):
+def colocar_barco(tablero, tamano):
     while True:
         orientacion = random.choice(["H", "V"])
         if orientacion == "H":
             fila = random.randint(0, 6)
-            col = random.randint(0, 7 - tamaño)
+            col = random.randint(0, 7 - tamano)
             valido = True
-            for i in range(tamaño):
+            for i in range(tamano):
                 if tablero[fila][col + i] != "~":
                     valido = False
                     break
             if valido:
-                for i in range(tamaño):
+                for i in range(tamano):
                     tablero[fila][col + i] = "B"
                 return
         else:
-            fila = random.randint(0, 7 - tamaño)
+            fila = random.randint(0, 7 - tamano)
             col = random.randint(0, 6)
             valido = True
-            for i in range(tamaño):
+            for i in range(tamano):
                 if tablero[fila + i][col] != "~":
                     valido = False
                     break
             if valido:
-                for i in range(tamaño):
+                for i in range(tamano):
                     tablero[fila + i][col] = "B"
                 return
 
 def colocar_barcos(tablero):
     barcos = [4, 3, 3, 2]
-    for tamaño in barcos:
-        colocar_barco(tablero, tamaño)
+    for tamano in barcos:
+        colocar_barco(tablero, tamano)
 
 def obtener_coordenadas(jugador):
     while True:
